@@ -4,7 +4,9 @@
 namespace App\Controller;
 
 
-class PerformanceController
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+
+class PerformanceController extends AbstractController
 {
 
 }
