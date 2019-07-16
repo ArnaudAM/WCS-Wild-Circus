@@ -3,35 +3,51 @@
 
 namespace App\Controller;
 
-use phpDocumentor\Reflection\Types\String_;
+use App\Entity\Performance;
+use App\Repository\AboutUsRepository;
+use App\Repository\PerformanceRepository;
+use App\Repository\PriceRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 class HomeController extends AbstractController
 {
 
     /**
-     * @Route("/", name="app_index")
+     * @param PerformanceRepository $performanceRepository
+     * @Route("/", name="index", methods={"GET"})
+     * @return Response
      */
-    public function index()
+    public function index(PerformanceRepository $performanceRepository): Response
     {
-        return $this->render('index.html.twig');
+        return $this->render('index.html.twig', [
+            'performances' => $performanceRepository->findAll(),
+        ]);
     }
 
     /**
+     * @param AboutUsRepository $aboutUsRepository
      * @Route("/about-us", name="about_us")
+     * @return Response
      */
-    public function aboutUs()
+    public function aboutUs(AboutUsRepository $aboutUsRepository): Response
     {
-        return $this->render('about_us.html.twig');
+        return $this->render('about_us.html.twig',
+            ['aboutus' => $aboutUsRepository->findAll(),
+            ]);
     }
 
     /**
+     * @param PriceRepository $priceRepository
      * @Route("/prices", name="prices")
+     * @return Response
      */
-    public function prices()
+    public function prices(PriceRepository $priceRepository): Response
     {
-        return $this->render('prices.html.twig');
+        return $this->render('prices.html.twig',
+            ['prices' => $priceRepository->findAll(),
+            ]);
     }
 
     /**

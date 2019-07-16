@@ -4,7 +4,14 @@
     <h1>About us</h1>
 
     <div>
-        Je suis le corps du texte ABOUT US
+        {% for us in aboutus %}
+
+            <img src="{{ us.picture1 }}" alt="About us 1"/>
+            <p>{{ us.information }}</p>
+            <img src="{{ us.picture2 }}" alt="About us 2"/>
+
+
+        {% endfor %}
     </div>
 
 {% endblock %}

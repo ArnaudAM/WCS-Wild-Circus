@@ -4,7 +4,20 @@
     <h1>Prices</h1>
 
     <div>
-        Je suis le corps du texte PRICES
+        <table>
+            <th>
+                <tr>You are</tr>
+                <tr>Week except Wed.</tr>
+                <tr>Weekend & Wed.</tr>
+            </th>
+            {% for price in prices %}
+            <tr>
+                <td>{{ price.person }}</td>
+                <td>{{ price.priceweek }}</td>
+                <td>{{ price.pricewednesday }}</td>
+            </tr>
+            {% endfor %}
+        </table>
     </div>
 
 {% endblock %}
