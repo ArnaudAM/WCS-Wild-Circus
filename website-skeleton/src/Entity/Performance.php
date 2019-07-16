@@ -26,6 +26,11 @@ class Performance
      */
     private $description;
 
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $perfPicture;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -51,6 +56,18 @@ class Performance
     public function setDescription(string $description): self
     {
         $this->description = $description;
+
+        return $this;
+    }
+
+    public function getPerfPicture(): ?string
+    {
+        return $this->perfPicture;
+    }
+
+    public function setPerfPicture(string $perfPicture): self
+    {
+        $this->perfPicture = $perfPicture;
 
         return $this;
     }
