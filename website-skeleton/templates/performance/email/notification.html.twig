@@ -1,0 +1,11 @@
+{% extends 'article/email/layout.html.twig' %}
+
+{% block body %}
+    <h1>Une performance qui peut vous intéresser vient de s'ajouter au spectacle</h1>
+
+    <p>Cet email vous est envoyé par : {{ name }}</p>
+
+    <br>
+    <p>Titre : <a href="{{ url('performance_show', {'id': performance.id}) }}">{{  performance.title }}</a></p>
+    <p>Cliquer sur le titre de la performance pour y accéder directement sur notre site.</p>
+{% endblock %}

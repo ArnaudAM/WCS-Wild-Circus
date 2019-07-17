@@ -28,7 +28,7 @@ class PerformanceController extends AbstractController
     /**
      * @Route("/performance/new", name="performance_new", methods={"GET","POST"})
      */
-    public function new(Request $request): Response
+    public function new(Request $request, \Swift_Mailer $mailer): Response
     {
         $performance = new Performance();
         $form = $this->createForm(PerformanceType::class, $performance);
@@ -36,8 +36,20 @@ class PerformanceController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
             $entityManager = $this->getDoctrine()->getManager();
+
             $entityManager->persist($performance);
             $entityManager->flush();
+
+            $message = (new \Swift_Message('Une nouvelle performance vient d\'être annoncée !'))
+                ->setFrom($this->getParameter('mailer_from'))
+                ->setTo($this->getParameter('mailer_from'))
+                ->setBody($this->renderView('performance/email/notification.html.twig',
+                    ['performance' => $performance,
+                        'name' => $this->getParameter('mailer_from')]),
+                    'text/html'
+                );
+            ;
+            $mailer->send($message);
 
             return $this->redirectToRoute('performance_index');
         }
