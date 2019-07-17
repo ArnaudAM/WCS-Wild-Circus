@@ -3,13 +3,13 @@
 
     <h1>Prices</h1>
 
-    <div>
-        <table>
-            <th>
-                <tr>You are</tr>
-                <tr>Week except Wed.</tr>
-                <tr>Weekend & Wed.</tr>
-            </th>
+    <div class="container">
+        <table class="table">
+            <tr>
+                <td>You are</td>
+                <td>Week except Wed.</td>
+                <td>Weekend & Wed.</td>
+            </tr>
             {% for price in prices %}
             <tr>
                 <td>{{ price.person }}</td>

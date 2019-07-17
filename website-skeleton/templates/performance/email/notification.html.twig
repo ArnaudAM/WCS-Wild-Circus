@@ -1,4 +1,4 @@
-{% extends 'article/email/layout.html.twig' %}
+{% extends 'performance/email/layout.html.twig' %}
 
 {% block body %}
     <h1>Une performance qui peut vous intéresser vient de s'ajouter au spectacle</h1>
@@ -7,5 +7,6 @@
 
     <br>
     <p>Titre : <a href="{{ url('performance_show', {'id': performance.id}) }}">{{  performance.title }}</a></p>
+    <p>{{ performance.description }}</p>
     <p>Cliquer sur le titre de la performance pour y accéder directement sur notre site.</p>
 {% endblock %}

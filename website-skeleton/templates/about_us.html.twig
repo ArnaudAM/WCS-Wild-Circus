@@ -3,15 +3,19 @@
 
     <h1>About us</h1>
 
-    <div>
-        {% for us in aboutus %}
+    {% for us in aboutus %}
+        <div>
+            <div class="aboutusfimg">
+                <img src="{{ us.picture1 }}" class="imgcenter" alt="About us 1"/>
+            </div>
+            <div class="aboutustxt">
+                <p>{{ us.information }}</p>
+            </div>
+            <div class="aboutusfimg">
+                <img src="{{ us.picture2 }}" class="imgcenter" alt="About us 2"/>
+            </div>
+        </div>
 
-            <img src="{{ us.picture1 }}" alt="About us 1"/>
-            <p>{{ us.information }}</p>
-            <img src="{{ us.picture2 }}" alt="About us 2"/>
-
-
-        {% endfor %}
-    </div>
+    {% endfor %}
 
 {% endblock %}
