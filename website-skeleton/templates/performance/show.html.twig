@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Performance{% endblock %}
+
+{% block body %}
+    <h1>Performance</h1>
+
+    <table class="table">
+        <tbody>
+        <tr>
+            <th>Id</th>
+            <td>{{ performance.id }}</td>
+        </tr>
+        <tr>
+            <th>Title</th>
+            <td>{{ performance.title }}</td>
+        </tr>
+        <tr>
+            <th>PerfPicture</th>
+            <td>{{ performance.perfPicture }}</td>
+        </tr>
+        <tr>
+            <th>Picture appearance</th>
+            <td>
+                <img src="{{ performance.perfPicture }}" alt="{{ performance.perfPicture }}" />
+            </td>
+        </tr>
+        <tr>
+            <th>Description</th>
+            <td>{{ performance.description }}</td>
+        </tr>
+
+        </tbody>
+    </table>
+
+    <a href="{{ path('performance_index') }}">back to list</a>
+
+    <a href="{{ path('performance_edit', {'id': performance.id}) }}">edit</a>
+
+    {{ include('performance/_delete_form.html.twig') }}
+{% endblock %}

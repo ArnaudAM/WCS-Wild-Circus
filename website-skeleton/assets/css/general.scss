@@ -1,0 +1,43 @@
+html {
+  height: 100vh;
+}
+
+body {
+  background-color: black;
+  color: white;
+  height: 100%;
+}
+
+h1 {
+  text-align: center;
+}
+
+h2 {
+  text-align: center;
+  margin-top: 3%;
+}
+
+table.table {
+  color: white;
+  margin: auto;
+}
+
+footer {
+  background-color: #343a40;
+  width: 100%;
+  ul {
+    display: flex;
+    flex-direction: row;
+    list-style: none;
+    text-decoration: none;
+    justify-content: space-evenly;
+    padding-bottom: 2%;
+    padding-top: 2%;
+    margin-bottom: 0;
+  }
+}
+
+img {
+  min-height: 25%;
+  max-width: 33%;
+}

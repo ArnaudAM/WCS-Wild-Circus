@@ -2,11 +2,54 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>{% block title %}Welcome!{% endblock %}</title>
-        {% block stylesheets %}{% endblock %}
+
+        <title>{% block title %}Wild Circus{% endblock %}</title>
+
+        {% block stylesheets %}
+            {{ encore_entry_link_tags('app') }}
+        {% endblock %}
+
     </head>
     <body>
+
+    <nav class="navbar navbar-dark bg-dark">
+        <div class="navbar" id="navbarNavDropdown">
+            <ul class="navbar-pers">
+                <li class="nav-item active">
+                    <a class="nav-link" href="performance">Performances</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="about-us">About us</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="prices">Prices</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="contact">Contact</a>
+                </li>
+            </ul>
+        </div>
+        <p>
+            {% if app.user %}
+                Bonjour {{ app.user.email }} !
+                <a href="{{ path('app_logout') }}"> Se déconnecter</a>
+            {% else %}
+                <a href="{{ path('app_login') }}"> Se connecter</a>
+            {% endif %}
+        </p>
+    </nav>
+
         {% block body %}{% endblock %}
+
+    <footer>
+        <ul>
+            <li><a href="https://wildcodeschool.fr/" target="blank">Wild Circus</a> by <a href="" class="lienpied" target="_blank">[Arnaud Auzou]</a></li>
+            <li>GitHub: <a href="https://github.com/ArnaudAM" target="_blank">ArnaudAM</a></li>
+            <li>LinkeDin: <a href="https://www.linkedin.com/in/arnaud-auzou-de-marichalar/" target="_blank">Arnaud Auzou</a></li>
+            <li>Wild Code School - [17/07/2019]</li>
+        </ul>
+    </footer>
+
         {% block javascripts %}{% endblock %}
     </body>
 </html>

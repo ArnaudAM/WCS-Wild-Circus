@@ -1,0 +1,21 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+
+    <h1>About us</h1>
+
+    {% for us in aboutus %}
+        <div>
+            <div class="aboutusfimg">
+                <img src="{{ us.picture1 }}" class="imgcenter" alt="About us 1"/>
+            </div>
+            <div class="aboutustxt">
+                <p>{{ us.information }}</p>
+            </div>
+            <div class="aboutusfimg">
+                <img src="{{ us.picture2 }}" class="imgcenter" alt="About us 2"/>
+            </div>
+        </div>
+
+    {% endfor %}
+
+{% endblock %}
