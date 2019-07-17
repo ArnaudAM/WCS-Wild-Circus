@@ -11,12 +11,12 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 /**
- * @Route("/performance")
+ * @Route("/admin")
  */
 class PerformanceController extends AbstractController
 {
     /**
-     * @Route("/", name="performance_index", methods={"GET"})
+     * @Route("/performance", name="performance_index", methods={"GET"})
      */
     public function index(PerformanceRepository $performanceRepository): Response
     {
@@ -26,7 +26,7 @@ class PerformanceController extends AbstractController
     }
 
     /**
-     * @Route("/new", name="performance_new", methods={"GET","POST"})
+     * @Route("/performance/new", name="performance_new", methods={"GET","POST"})
      */
     public function new(Request $request): Response
     {
@@ -49,7 +49,7 @@ class PerformanceController extends AbstractController
     }
 
     /**
-     * @Route("/{id}", name="performance_show", methods={"GET"})
+     * @Route("/performance/{id}", name="performance_show", methods={"GET"})
      */
     public function show(Performance $performance): Response
     {
@@ -59,7 +59,7 @@ class PerformanceController extends AbstractController
     }
 
     /**
-     * @Route("/{id}/edit", name="performance_edit", methods={"GET","POST"})
+     * @Route("/performance/{id}/edit", name="performance_edit", methods={"GET","POST"})
      */
     public function edit(Request $request, Performance $performance): Response
     {
@@ -79,7 +79,7 @@ class PerformanceController extends AbstractController
     }
 
     /**
-     * @Route("/{id}", name="performance_delete", methods={"DELETE"})
+     * @Route("/performance/{id}", name="performance_delete", methods={"DELETE"})
      */
     public function delete(Request $request, Performance $performance): Response
     {

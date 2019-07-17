@@ -10,7 +10,7 @@
         <div class="navbar" id="navbarNavDropdown">
             <ul class="navbar-pers">
                 <li class="nav-item active">
-                    <a class="nav-link" href="/">Performances</a>
+                    <a class="nav-link" href="performance">Performances</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="about-us">About us</a>
@@ -24,6 +24,12 @@
             </ul>
         </div>
         <p>
+            {% if app.user %}
+                Bonjour {{ app.user.email }} !
+                <a href="{{ path('app_logout') }}"> Se déconnecter</a>
+            {% else %}
+                <a href="{{ path('app_login') }}"> Se connecter</a>
+            {% endif %}
         </p>
     </nav>
 

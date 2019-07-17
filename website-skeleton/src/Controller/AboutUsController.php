@@ -11,12 +11,12 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 /**
- * @Route("/aboutus")
+ * @Route("/admin")
  */
 class AboutUsController extends AbstractController
 {
     /**
-     * @Route("/", name="about_us_index", methods={"GET"})
+     * @Route("/about-us", name="about_us_index", methods={"GET"})
      */
     public function index(AboutUsRepository $aboutUsRepository): Response
     {
@@ -26,7 +26,7 @@ class AboutUsController extends AbstractController
     }
 
     /**
-     * @Route("/new", name="about_us_new", methods={"GET","POST"})
+     * @Route("/about-us/new", name="about_us_new", methods={"GET","POST"})
      */
     public function new(Request $request): Response
     {
@@ -49,7 +49,7 @@ class AboutUsController extends AbstractController
     }
 
     /**
-     * @Route("/{id}", name="about_us_show", methods={"GET"})
+     * @Route("/about-us/{id}", name="about_us_show", methods={"GET"})
      */
     public function show(AboutUs $aboutU): Response
     {
@@ -59,7 +59,7 @@ class AboutUsController extends AbstractController
     }
 
     /**
-     * @Route("/{id}/edit", name="about_us_edit", methods={"GET","POST"})
+     * @Route("/about-us/{id}/edit", name="about_us_edit", methods={"GET","POST"})
      */
     public function edit(Request $request, AboutUs $aboutU): Response
     {
@@ -79,7 +79,7 @@ class AboutUsController extends AbstractController
     }
 
     /**
-     * @Route("/{id}", name="about_us_delete", methods={"DELETE"})
+     * @Route("/about-us/{id}", name="about_us_delete", methods={"DELETE"})
      */
     public function delete(Request $request, AboutUs $aboutU): Response
     {

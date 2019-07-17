@@ -15,13 +15,21 @@ class HomeController extends AbstractController
 {
 
     /**
+     * @Route("/", name="index")
+     */
+    public function index()
+    {
+        return $this->render('index.html.twig');
+    }
+
+    /**
      * @param PerformanceRepository $performanceRepository
-     * @Route("/", name="index", methods={"GET"})
+     * @Route("/performance", name="performance")
      * @return Response
      */
-    public function index(PerformanceRepository $performanceRepository): Response
+    public function performance(PerformanceRepository $performanceRepository): Response
     {
-        return $this->render('index.html.twig', [
+        return $this->render('performance.html.twig', [
             'performances' => $performanceRepository->findAll(),
         ]);
     }

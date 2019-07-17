@@ -1,0 +1,19 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Bienvenue au Wild Circus{% endblock %}
+
+{% block body %}
+
+    <h1>Performances</h1>
+
+    <div>
+        {% for performance in performances %}
+
+            <h2>{{ performance.title }}</h2>
+            <img src="{{ performance.perfpicture }}" alt="{{ performance.title }}">
+            <p>{{ performance.description }}</p>
+
+        {% endfor %}
+    </div>
+
+{% endblock %}
