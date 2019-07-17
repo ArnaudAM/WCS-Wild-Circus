@@ -3,6 +3,7 @@
 
 namespace App\Controller;
 
+use App\Entity\Category;
 use App\Entity\Performance;
 use App\Repository\AboutUsRepository;
 use App\Repository\PerformanceRepository;

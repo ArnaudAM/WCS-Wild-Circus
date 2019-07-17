@@ -31,6 +31,11 @@ class Performance
      */
     private $perfPicture;
 
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\Category")
+     */
+    private $category;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -68,6 +73,18 @@ class Performance
     public function setPerfPicture(string $perfPicture): self
     {
         $this->perfPicture = $perfPicture;
+
+        return $this;
+    }
+
+    public function getCategory(): ?Category
+    {
+        return $this->category;
+    }
+
+    public function setCategory(?Category $category): self
+    {
+        $this->category = $category;
 
         return $this;
     }
